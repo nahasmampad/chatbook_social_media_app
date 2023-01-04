@@ -3,6 +3,7 @@ import Login from "./pages/login";
 import Profile from "./pages/profile";
 import Home from "./pages/home";
 import LoggedInRoutes from "./routes/LoggedInRoutes";
+import AdminRoute from "./routes/AdminRout";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
 import { useSelector } from "react-redux";
 import Activate from "./pages/home/activate";
@@ -13,7 +14,10 @@ import axios from "axios";
 import { postsReducer } from "./functions/reducers";
 import Friends from "./pages/friends";
 import Messanger from "./pages/messanger/Messanger";
-
+import Admin from "./pages/admin";
+import AdminUser from "./pages/admin/UserManagement";
+import AdminPost from "./pages/admin/PostManagement";
+import ErrorPage from "./pages/eroor/ErrorPage";
 function App() {
   const [visible, setVisible] = useState(false);
   const { user, darkTheme } = useSelector((state) => ({ ...state }));
@@ -60,6 +64,7 @@ function App() {
         />
       )}
       <Routes>
+      
         <Route element={<LoggedInRoutes />}>
           <Route
             path="/profile"
@@ -68,6 +73,7 @@ function App() {
             }
             exact
           />
+
           <Route
             path="/profile/:username"
             element={
@@ -116,7 +122,16 @@ function App() {
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} exact />
         </Route>
+
+        <Route element={<AdminRoute />}>
+          <Route path="/admin" element={<Admin />} exact />
+          <Route path="/admin/users" element={<AdminUser />} />
+          <Route path="/admin/posts" element={<AdminPost />} />
+        </Route>
+
         <Route path="/reset" element={<Reset />} />
+        <Route path="*" element={<ErrorPage/>} />
+
       </Routes>
     </div>
   );

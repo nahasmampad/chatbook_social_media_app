@@ -117,3 +117,5 @@ export const deletePost = async (postId, token) => {
     return error.response.data.message;
   }
 };
+
+

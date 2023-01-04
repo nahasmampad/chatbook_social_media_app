@@ -13,6 +13,7 @@ const { generateToken } = require("../helpers/tokens");
 const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
 const generateCode = require("../helpers/generateCode");
 const mongoose = require("mongoose");
+const { admin } = require("googleapis/build/src/apis/admin");
 exports.register = async (req, res) => {
   try {
     const {
@@ -86,6 +87,9 @@ exports.register = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
+      admin:user.admin,
+      block:user.block,
+      
       message: "Register Success ! please activate your email to start",
     });
   } catch (error) {
@@ -122,6 +126,12 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
+    if(user.block){
+      return res.status(400).json({
+        message:
+          "You are blocked by admin",
+      });
+    }
     if (!user) {
       return res.status(400).json({
         message:
@@ -143,6 +153,8 @@ exports.login = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
+      admin:user.admin,
+      block:user.block
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -267,7 +279,7 @@ exports.getProfile = async (req, res) => {
       friendship.requestSent = true;
     }
 
-    const posts = await Post.find({ user: profile._id })
+    const posts = await Post.find({ user: profile._id,block:false })
       .populate("user")
       .populate(
         "comments.commentBy",

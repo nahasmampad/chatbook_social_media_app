@@ -119,7 +119,9 @@ export default function Header({ page, getAllPosts }) {
           {showAllMenu && <AllMenu />}
         </div>
         <div className="circle_icon hover1">
-          <Messenger />
+          <Link to="/messanger">
+            <Messenger />
+          </Link>
         </div>
         <div className="circle_icon hover1">
           <Notifications />

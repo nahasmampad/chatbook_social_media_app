@@ -1,0 +1,276 @@
+/* Admin Menubar */
+.admin_menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--blue-color);
+  padding: 4px 1rem;
+  height: 56px;
+}
+
+.admin_logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin_logo img {
+  width: 40px;
+}
+
+.admin_logo span {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.admin_search {
+  background: var(--bg-primary);
+  padding: 10px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.admin_search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+.admin_search_icon {
+  cursor: pointer;
+}
+
+.admin_profile_img {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin_profile_img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.admin_logo_dowm_icon {
+  cursor: pointer;
+  background: #fff;
+  color: var(--blue-color);
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* ----Admin Home---- */
+.admin_home_page {
+  width: 100%;
+}
+.admin_home_container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.admin_home_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+  padding: 10px;
+  width: 18rem;
+  height: 23rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card_head {
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue-color);
+  height: 30%;
+  width: 100%;
+  color: #fff;
+}
+
+.total_item_count {
+  font-weight: 800;
+  font-size: 3rem;
+  width: 100%;
+  background-color: #fff;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.view_Details_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+  background-color: var(--light-blue-color);
+  border-bottom: 3px solid var(--blue-color);
+}
+.view_Details_btn button{
+  padding: 10px 15px;
+  border: none;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--blue-color);
+  font-weight: 500;
+}
+
+.view_Details_btn button:hover{
+  background-color: var(--blue-color);
+  color: #fff;
+}
+
+/* ----Admin Index---- */
+.admin_wrapper {
+  display: grid;
+  grid-template-columns: 18% auto;
+  height: calc(100vh - 56px);
+}
+
+.admin_sidebar_container {
+  background-color: antiquewhite;
+  padding: 20px;
+}
+.admin_page_container {
+  padding: 20px;
+}
+
+/* Admin Index */
+
+/* ---Admin Sidebar--- */
+.admin_sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.admin_menu {
+  background-color: #fff;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+  gap: 5px;
+  cursor: pointer;
+}
+
+.admin_menu span {
+  color: var(--blue-color);
+  font-weight: 500;
+}
+
+/* ---Admin Sidebar--- */
+
+/* ---User Management---- */
+.admin_com_header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.admin_user_management {
+  width: 100%;
+  height: 4rem;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+}
+
+.admin_user_management span {
+  font-weight: 500;
+}
+
+.admin_table {
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.table_inner {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table_inner th {
+  background-color: var(--green-color);
+  color: #fff;
+  text-align: left;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.table_inner td {
+  background-color: var(--light-blue-color);
+  color: black;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--blue-color);
+}
+
+.table_inner td,
+th {
+  padding: 8px;
+}
+
+.admin_block_btn {
+  border: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin_unblock_btn {
+  border: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: green;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin_block_btn img {
+  filter: invert(100%);
+}
+/* ---User Management---- */
+
+/* ====Responsive==== */
+@media (max-width: 700px) {
+  .admin_menu span {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .admin_logo span {
+    display: none;
+  }
+}
